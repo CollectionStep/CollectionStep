@@ -10,43 +10,166 @@ html,
 body {
     padding: 0;
     margin: 0;
-    background: url(../img/background.jpg);
+    background: url(../img/background.jpg) no-repeat;
     background-size: cover;
     color: white;
+    height: 100%;
+    width: 100%;
 }
 
-#menu {
+
+
+.sidebar {
+    width: 10%;
+    /* Altera a largura para ocupar toda a lateral da página */
+    height: 100%;
+    /* Define a altura para ocupar toda a altura da janela */
+    position: fixed;
+    top: 0;
+    left: 0;
+    /* Posiciona a sidebar no canto superior esquerdo */
+    background-color: rgba(255, 115, 34, 0.55);
+    /* Cor laranja com 55% de opacidade */
+    backdrop-filter: blur(5px);
+    /* Adiciona o efeito de desfoque */
+}
+
+.sidebar:hover {
+    background-color: rgba(255, 115, 34, 0.8);
+    /* Cor laranja com 80% de opacidade ao passar o cursor */
+}
+
+
+
+/* Estilo para a tabela na página de produtos cadastrados */
+.tabela {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    padding: 2rem;
+    max-width: 800px;
+    /* Ajuste conforme necessário */
     width: 100%;
-    height: 50px;
-    background-color: #FE7912;
-    opacity: 0.7;
+    margin: auto;
+    /* Centraliza a tabela horizontalmente */
+    transition: background-color 1s;
+    /* Transição de cor de 1 segundo */
+    backdrop-filter: blur(5px);
+    /* Efeito de desfoque */
+}
+
+/* Hover para alterar a cor para laranja */
+.tabela:hover {
+    background-color: #ff7322;
+}
+
+/* Estilo para a tabela na página de cadastrar produtos */
+.tabela-cadastro {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    padding: 2rem;
+    max-width: 500px;
+    /* Ajuste conforme necessário */
+    width: 100%;
+    /*ajuste vertical e horizontal*/
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    /* Centraliza a tabela horizontalmente */
+    backdrop-filter: blur(5px);
+    /* Efeito de desfoque */
+    transition: background-color 1s;
+    /* Transição de cor de 1 segundo */
+}
+
+/* Hover para alterar a cor para laranja */
+.tabela-cadastro:hover {
+    background-color: #ff7322;
+}
+
+/* Estilo para as caixas de texto na tabela de cadastrar produtos */
+.tabela-cadastro input[type="text"],
+.tabela-cadastro input[type="date"] {
+    width: 100%;
+    padding: 0.5rem 0;
+    /* Ajusta o preenchimento (padding) vertical */
+    margin-bottom: 1rem;
+    /* Espaçamento inferior */
     border: none;
+    /* Remove a borda */
+    border-bottom: 1px solid transparent;
+    /* Adiciona apenas a linha de baixo */
+    background: none;
+    /* Remove o fundo */
+    color: #fff;
+    /* Cor do texto */
+    text-align: left;
+    /* Alinha o texto à esquerda */
+    border-radius: 5px;
+    /* Bordas arredondadas */
+    transition: border-color 1s;
+    /* Transição de cor da borda de 1 segundo */
 }
 
-.nav {
+/* Cor do contorno branco para caixas de texto quando o cursor estiver sobre a tabela */
+.tabela-cadastro:hover input[type="text"],
+.tabela-cadastro:hover input[type="date"] {
+    border-color: #fff;
+}
+
+/* Justifica o texto dentro das caixas de texto */
+.tabela-cadastro input[type="text"],
+.tabela-cadastro input[type="date"],
+.tabela-cadastro label {
+    text-align: justify;
+}
+
+/* Centraliza o conteúdo dentro da tabela de cadastrar produtos */
+.tabela-cadastro fieldset {
+    text-align: center;
+}
+
+/* Alinha a label na frente da caixa de texto */
+.tabela-cadastro label {
+    display: block;
+    /* Mostra as labels como blocos */
+    margin-bottom: 0.5rem;
+    /* Espaçamento inferior */
+    font-weight: bold;
+    /* Deixa o texto em negrito */
+}
+
+/* Estilo para o botão de cadastrar produtos */
+.tabela-cadastro button[type="submit"] {
     width: 100%;
-    height: 100px;
-    display: flex;
-    justify-content: center;
+    /* Ocupa toda a largura disponível */
+    padding: 1rem;
+    /* Aumenta o preenchimento do botão */
+    background-color: #ff5722;
+    /* Cor de fundo */
+    border: none;
+    /* Remove a borda */
+    border-radius: 10px;
+    /* Bordas arredondadas */
+    font-size: 1.2rem;
+    /* Tamanho da fonte */
+    color: #fff;
+    /* Cor do texto */
+    cursor: pointer;
+    /* Cursor de ponteiro ao passar por cima */
+    transition: background-color 1s, transform 0.3s;
+    /* Transições de cor e escala */
 }
 
-.prod_cad_list {
-    width: 100%;
-    height: 90%;
-    display: flex;
-    margin-top: 10%;
-    justify-content: center;
-}
-
-.produtos {
-    width: 55%;
-    height: 2%;
-}
-
-footer {
-    width: 100%;
-    height: 50px;
-    background-color: #FE7912;
+/* Hover para ajustar a cor e a escala do botão */
+.tabela-cadastro button[type="submit"]:hover {
+    background-color: #e64a19;
+    /* Cor de fundo no hover */
+    transform: scale(1.05);
+    /* Aumenta a escala no hover */
 }
 
 table {
@@ -77,12 +200,15 @@ tr:hover {
     text-align: center;
     background-color: #FF5100;
     color: #fff;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+footer {
+    width: 100%;
+    height: 50px;
+    background-color: #FE7912;
 }
 
 @media (max-width: 490px) {
-
-    /* Estilos para telas com largura menor ou igual a 490 pixels */
     .produtos {
         width: 90%;
     }
@@ -94,188 +220,29 @@ tr:hover {
         align-items: center;
         text-align: center;
         background-color: #FF4500;
-        /* Alterado para a cor laranja */
         color: #f2f2f2;
-        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     }
 
     .centro {
         width: 100%;
         text-align: center;
         margin: 100px 0 auto;
-        /* Corrigido o valor de margem */
     }
 }
 
-.menu {
-    position: fixed;
-    top: 10px;
-    left: 10px;
-    background-color:none;
-    color: white;
-    padding: 10px;
-    border-radius: 0 10px 10px 0;
-    transition: width 0.3s ease;
-    z-index: 1000;
-    /* Garante que o menu fique sobre outros elementos */
-}
-
-.menu-button {
-    border: none;
-    background: none;
-    color: white;
-    cursor: pointer;
-    font-size: 2em;
-    height: 30vh;
-    
-    /* Tamanho do ícone */
-}
-
-.button-cascade {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start; /* Alinhar as opções à esquerda */
-    transition: opacity 0.5s ease, max-height 0.5s ease;
-    opacity: 0;
-    max-height: 3em;
-    overflow: hidden;
-    position: absolute; /* Para garantir que o menu fique sobreposto */
-    top: 60px; /* Ajuste conforme necessário */
-    left: 0; /* Alinha o menu à esquerda */
-    background-color: #FE7912; /* Cor de fundo do menu */
-    padding: 10px; /* Espaçamento interno do menu */
-    border-radius: 5px; /* Bordas arredondadas */
-}
-
-.button-cascade .option {
-    color: white;
-    padding: 10px 0;
-    text-decoration: none;
-}
-
-.button-cascade .option:hover {
-    text-decoration: underline;
-}
-
-.menu-button:hover+ .button-cascade,
-.button-cascade:hover {
-    opacity: 1;
-    max-height: 200px;
-    
-}
-
+/* Additional styles for sidebar and responsive adjustments */
 @media (max-width: 768px) {
-    .menu {
-        width: 60px;
-        /* Largura reduzida para ícone de menu */
+    .sidebar {
+        width: 150px;
     }
 
-    .menu-button {
-        font-size: 20px;
-        /* Tamanho do ícone de menu */
-    }
-
-    .menu-button:hover{
-        transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
-        max-height: 0;
-        overflow: hidden;
-        opacity: 0;
-    }
-
-    .button-cascade {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        /* Alterado para alinhar os botões no início */
-        transition: opacity 0.5s ease, max-height 0.5s ease;
-        opacity: 0;
-        max-height: 0;
-        overflow: hidden;
-    }
-
-    .button-cascade .option {
-        color: white;
-        padding: 10px 0;
-        text-decoration: none;
-        /* Remove o sublinhado */
-    }
-
-}
-
-/* Esconde os botões na cascata por padrão */
-.button-cascade.hidden {
-    opacity: 0;
-    max-height: 0;
-    pointer-events: none;
-    /* Não permite clique quando oculto */
-}
-
-
-.tabela {
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 15px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-    padding: 2rem;
-    max-width: 500px;
+   /* Centraliza a tabela verticalmente e horizontalmente */
+.content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
     width: 100%;
-    margin: auto;
-    /* Centraliza a tabela horizontalmente */
 }
 
-fieldset {
-    border: none;
-}
-
-legend {
-    text-align: center;
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    border-bottom: 2px solid #fff;
-    padding-bottom: 0.5rem;
-}
-
-label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: bold;
-    color: #fff;
-}
-
-input[type="text"],
-input[type="date"] {
-    width: 100%;
-    padding: 0.75rem;
-    margin-bottom: 1rem;
-    border: none;
-    border-radius: 5px;
-    background: rgba(255, 255, 255, 0.2);
-    color: #fff;
-}
-
-button[type="submit"] {
-    width: 100%;
-    padding: 0.75rem;
-    background: #ff5722;
-    border: none;
-    border-radius: 5px;
-    font-size: 1rem;
-    color: #fff;
-    cursor: pointer;
-    transition: background 0.3s;
-}
-
-button[type="submit"]:hover {
-    background: #e64a19;
-}
-
-/* Estilo para a tabela na página inicial */
-.table-container {
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 15px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-    padding: 2rem;
-    max-width: 800px;
-    width: 100%;
-    margin: auto; /* Centraliza a tabela horizontalmente */
-    color: #fff;
 }

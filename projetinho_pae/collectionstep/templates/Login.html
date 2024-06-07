@@ -4,14 +4,25 @@
 <head>
     <link rel="stylesheet" href="../static/css/log.css">
     <link rel="stylesheet" href="../static/css/bootstrap.css">
-    <title>Logar</title>
+    <title>Login</title>
 </head>
 
 <body>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      <ul class="list-unstyled" id="messages">
+      {% for category, message in messages %}
+        <li class="alert alert-danger">{{ message }}</li>
+      {% endfor %}
+      </ul>
+    {% endif %}
+  {% endwith %}
+
     <section>
+
         <div class="box">
             <div class="form-value">
-                <form action="">
+                <form action="/logar" method="post">
                     <h2>Login</h2>
                     <div class="cxentrada">
                         <ion-icon name="mail-outline"></ion-icon>
@@ -29,7 +40,7 @@
                     </div>
                     <button>Log in</button>
                     <div class="registro">
-                        <p>Não possui conta? <a href="Reg.html">Registre-se</a></p>
+                        <p>Não possui conta? <a href="{{url_for('registro')}} ">Registre-se</a></p>
                     </div>
                 </form>
             </div>

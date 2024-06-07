@@ -1,8 +1,11 @@
 from flask import Flask, render_template, redirect, request
 from flask_sqlalchemy import SQLAlchemy
 from views import *
+from models import *
+
 
 app = Flask(__name__)
+
 app.config.from_pyfile('config.py')
 
 db = SQLAlchemy(app)

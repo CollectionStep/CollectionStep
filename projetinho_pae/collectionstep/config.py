@@ -1,4 +1,4 @@
-secret_key = 'quatro&20'
+SECRET_KEY = 'quatro&20'
 
 # Configuração do banco de dados
 SQLALCHEMY_DATABASE_URI = 'mysql+mysqlconnector://{usuario}:{senha}@{host}/{database}'.format(
