@@ -29,7 +29,7 @@
                 <ion-icon name="menu"></ion-icon>
             </button>
             <div class="tabela">
-                <h1>Produtos Cadastrados</h1>
+                <h1 class="titulo-tabela">Produtos Cadastrados</h1>
                 <table>
                     <thead>
                         <tr>
@@ -47,8 +47,8 @@
                             <td>
                                 <p class="stats">A caminho</p>
                             </td>
-                            <td><a href="/apagar_produto/{{ Product.id_produto }}">Apagar</a></td>
-                            <td><a href="/apagar_produto/{{ Product.id_produto }}">Editar</a></td>
+                            <td><a class="stats" href="/apagar_produto/{{ Product.id_produto }}">Apagar</a></td>
+                            <td><a class="stats" href="/apagar_produto/{{ Product.id_produto }}">Editar</a></td>
                         </tr>
                         {% endfor %}
                     </tbody>
