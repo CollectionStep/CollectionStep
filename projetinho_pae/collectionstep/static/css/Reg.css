@@ -144,3 +144,14 @@ button {
 .botao{
     border-radius: 50px;
 }
+
+/* Adicionando as mudanças ao CSS existente */
+
+.box:hover {
+    background-color: rgba(255, 255, 255, 0.1); /* Cor do hover */
+    border-color: #fff; /* Cor da borda no hover */
+}
+
+.botao:hover {
+    background-color: rgba(255, 255, 255, 0.8); /* Cor do hover para o botão */
+}

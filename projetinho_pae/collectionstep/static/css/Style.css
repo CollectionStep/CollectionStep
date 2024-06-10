@@ -17,7 +17,11 @@ body {
     width: 100%;
 }
 
-
+input:focus {
+    border-style: none;
+    border: 0 none;
+    box-shadow: 0 0 0 0;
+}
 
 .sidebar {
     width: 10%;
@@ -38,8 +42,6 @@ body {
     background-color: rgba(255, 115, 34, 0.8);
     /* Cor laranja com 80% de opacidade ao passar o cursor */
 }
-
-
 
 /* Estilo para a tabela na página de produtos cadastrados */
 .tabela {
@@ -69,7 +71,7 @@ body {
     border-radius: 15px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
     padding: 2rem;
-    max-width: 350px;
+    max-width: 550px;
     height: 650px;
     /* Ajuste conforme necessário */
     width: 100%;
@@ -84,14 +86,14 @@ body {
     /* Efeito de desfoque */
     transition: background-color 1s;
     /* Transição de cor de 1 segundo */
-    
 }
 
-.titulo-tabela{
+.titulo-tabela {
     display: grid;
     align-items: center;
     justify-content: center;
 }
+
 /* Hover para alterar a cor para laranja */
 .tabela-cadastro:hover {
     background-color: #ff7322;
@@ -179,71 +181,74 @@ body {
     /* Aumenta a escala no hover */
 }
 
+.divBusca {
+    display: flex;
+    align-items: center;
+    border: solid 2px rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    height: 37px;
+    width: 250px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    transition: background-color 1s, border-color 1s;
+}
+
+/* Hover para o campo de busca */
+.divBusca:hover {
+    background-color: rgba(255, 115, 34, 0.5);
+    /* Fundo laranja com 55% de opacidade */
+    border-color: rgba(255, 115, 34, 0.8);
+    /* Cor da borda laranja */
+}
+
+.txtBusca {
+    float: left;
+    background: rgba(255, 255, 255, 0.1);
+    padding-left: 5px;
+    font-size: 18px;
+    border: none;
+    height: 32px;
+    width: 206px;
+    color: white;
+    backdrop-filter: blur(5px);
+    transition: border-color 1s;
+    border-radius: 5px;
+}
+
+.txtBusca::placeholder {
+    color: white;
+    opacity: 0.7;
+}
+
+.btnBusca {
+    float: left;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    border-style: none;
+}
+
 .modificar-tabela {
     background: rgba(255, 255, 255, 0.1);
     border-radius: 15px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
     padding: 2rem;
-    max-width: 500px; /* Ajuste conforme necessário */
+    max-width: 500px;
+    /* Ajuste conforme necessário */
     width: 100%;
-    margin: auto; /* Centraliza a tabela horizontalmente */
-    backdrop-filter: blur(5px); /* Efeito de desfoque */
-    transition: background-color 1s; /* Transição de cor de 1 segundo */
-    text-align: center; /* Alinha o texto ao centro */
+    margin: auto;
+    /* Centraliza a tabela horizontalmente */
+    backdrop-filter: blur(5px);
+    /* Efeito de desfoque */
+    transition: background-color 1s;
+    /* Transição de cor de 1 segundo */
+    text-align: center;
+    /* Alinha o texto ao centro */
 }
 
-.modificar-tabela h1 {
-    margin-bottom: 1rem; /* Espaçamento inferior */
-}
-
-.modificar-tabela input[type="text"] {
-    width: 100%;
-    padding: 0.5rem 0; /* Ajusta o preenchimento (padding) vertical */
-    margin-bottom: 1rem; /* Espaçamento inferior */
-    border: none; /* Remove a borda */
-    border-bottom: 1px solid transparent; /* Adiciona apenas a linha de baixo */
-    background: none; /* Remove o fundo */
-    color: #fff; /* Cor do texto */
-    text-align: left; /* Alinha o texto à esquerda */
-    border-radius: 5px; /* Bordas arredondadas */
-    transition: border-color 1s; /* Transição de cor da borda de 1 segundo */
-}
-
-.modificar-tabela input[type="text"]:hover {
-    border-color: #fff; /* Cor do contorno branco ao passar o mouse */
-}
-
-.modificar-tabela label {
-    display: block; /* Mostra as labels como blocos */
-    margin-bottom: 0.5rem; /* Espaçamento inferior */
-    font-weight: bold; /* Deixa o texto em negrito */
-}
-
-.modificar-tabela button[type="submit"] {
-    width: 100%; /* Ocupa toda a largura disponível */
-    padding: 1rem; /* Aumenta o preenchimento do botão */
-    background-color: #ff5722; /* Cor de fundo */
-    border: none; /* Remove a borda */
-    border-radius: 10px; /* Bordas arredondadas */
-    font-size: 1.2rem; /* Tamanho da fonte */
-    color: #fff; /* Cor do texto */
-    cursor: pointer; /* Cursor de ponteiro ao passar por cima */
-    transition: background-color 1s, transform 0.3s; /* Transições de cor e escala */
-}
-
-.modificar-tabela button[type="submit"]:hover {
-    background-color: #e64a19; /* Cor de fundo no hover */
-    transform: scale(1.05); /* Aumenta a escala no hover */
-}
-
-/* Hover para alterar a cor para laranja */
-.modificar-cadastro:hover {
-    background-color: #ff7322;
-}
-
-/* Estilo para as caixas de texto na tabela de cadastrar produtos */
-.modificar-cadastro input[type="text"],
-.modificar-cadastro input[type="date"] {
+/* Adicionando os estilos para campos de data e hover da tabela de cadastro */
+.modificar-tabela input[type="text"],
+.modificar-tabela input[type="date"] {
     width: 100%;
     padding: 0.5rem 0;
     /* Ajusta o preenchimento (padding) vertical */
@@ -266,25 +271,20 @@ body {
 }
 
 /* Cor do contorno branco para caixas de texto quando o cursor estiver sobre a tabela */
-.modificar-cadastro:hover input[type="text"],
-.modificar-cadastro:hover input[type="date"] {
+.modificar-tabela:hover input[type="text"],
+.modificar-tabela:hover input[type="date"] {
     border-color: #fff;
 }
 
 /* Justifica o texto dentro das caixas de texto */
-.modificar-cadastro input[type="text"],
-.modificar-cadastro input[type="date"],
-.modificar-cadastro label {
+.modificar-tabela input[type="text"],
+.modificar-tabela input[type="date"],
+.modificar-tabela label {
     text-align: justify;
 }
 
-/* Centraliza o conteúdo dentro da tabela de cadastrar produtos */
-.modificar-cadastro fieldset {
-    text-align: center;
-}
-
 /* Alinha a label na frente da caixa de texto */
-.modificar-cadastro label {
+.modificar-tabela label {
     display: block;
     /* Mostra as labels como blocos */
     margin-bottom: 0.5rem;
@@ -293,8 +293,8 @@ body {
     /* Deixa o texto em negrito */
 }
 
-/* Estilo para o botão de cadastrar produtos */
-.modificar-cadastro button[type="submit"] {
+/* Estilo para o botão de editar produtos */
+.modificar-tabela button[type="submit"] {
     width: 100%;
     /* Ocupa toda a largura disponível */
     padding: 1rem;
@@ -316,11 +316,34 @@ body {
 }
 
 /* Hover para ajustar a cor e a escala do botão */
-.modificar-cadastro button[type="submit"]:hover {
+.modificar-tabela button[type="submit"]:hover {
     background-color: #e64a19;
     /* Cor de fundo no hover */
     transform: scale(1.05);
     /* Aumenta a escala no hover */
+}
+/* Hover para alterar a cor para laranja */
+.modificar-tabela:hover {
+    background-color: #ff7322;
+}
+
+/* Cor do contorno branco para caixas de texto quando o cursor estiver sobre a tabela */
+.modificar-tabela:hover input[type="text"],
+.modificar-tabela:hover input[type="date"] {
+    border-color: #fff;
+}
+
+.logout-botao {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+
+a {
+    text-decoration: none;
+    text-shadow: #e64a19;
 }
 
 table {
@@ -387,13 +410,12 @@ footer {
         width: 150px;
     }
 
-   /* Centraliza a tabela verticalmente e horizontalmente */
-.content {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    width: 100%;
-}
-
+    /* Centraliza a tabela verticalmente e horizontalmente */
+    .content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        width: 100%;
+    }
 }

@@ -1,16 +1,20 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../static/css/bootstrap.css">
     <link rel="stylesheet" href="../static/css/Style.css">
     <title>tela inicial</title>
+
 </head>
+
 <body>
+
     <div class="d-flex">
         <!-- Sidebar -->
-        <div class="sidebar">
+        <div class="bg-orange sidebar">
             <div class="sidebar-sticky">
                 <ul class="nav flex-column">
                     <li class="nav-item">
@@ -20,8 +24,16 @@
                         <a class="nav-link text-white" href="{{ url_for('cadastrar_produto') }}">Cadastrar Produto</a>
                     </li>
                 </ul>
+                <!-- Botão de logout no rodapé da sidebar -->
+                <div class="logout-botao">
+                    <form action="/logout" method="post">
+                        <button type="submit" class="btn btn-danger">Logout</button>
+                    </form>
+                </div>
             </div>
         </div>
+
+
 
         <!-- Main content -->
         <div class="content flex-grow-1">
@@ -29,14 +41,36 @@
                 <ion-icon name="menu"></ion-icon>
             </button>
             <div class="tabela">
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                <ul class="list-unstyled" id="messages">
+                    {% for category, message in messages %}
+                    <li class="alert alert-primary">{{ message }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+                {% endwith %}
+                <form action="/pesquisar_rastreio" method="post">
+                    <div class="divBusca">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                            class="bi bi-search" viewBox="0 0 16 16">
+                            <path
+                                d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+                        </svg>
+                        <input type="text" name="rastreio" class="txtBusca" placeholder="Buscar..." />
+
+
+                    </div>
+                </form>
                 <h1 class="titulo-tabela">Produtos Cadastrados</h1>
                 <table>
                     <thead>
                         <tr>
                             <th>Rastreio</th>
-                            <th>Data de Recebimento</th>
-                            <th>Status</th>
-                            <th>Info</th>
+                            <th>Data </th>
+                            <th>Descrição</th>
+                            <th>tipo</th>
+                            <th>Ações</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -44,11 +78,26 @@
                         <tr>
                             <td>{{Product.rastreio_pedido}}</td>
                             <td>{{Product.datareceb_prod}}</td>
-                            <td>
-                                <p class="stats">A caminho</p>
-                            </td>
-                            <td><a class="stats" href="/apagar_produto/{{ Product.id_produto }}">Apagar</a></td>
-                            <td><a class="stats" href="/editar_produto/{{ Product.id_produto }}">Editar</a></td>
+                            <td>{{Product.desc_prod}}</td>
+                            <td>{{Product.tipo_prod}}</td>
+
+                            <div class="container">
+                                <td><a href="/apagar_produto/{{ Product.id_produto }}"><svg
+                                            xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
+                                            <path
+                                                d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5M8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5m3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0" />
+                                        </svg></a> <a href="/editar_produto/{{ Product.id_produto }}"><svg
+                                            xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                            <path
+                                                d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+                                            <path fill-rule="evenodd"
+                                                d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z" />
+                                        </svg>
+                                    </a></td>
+
+                            </div>
 
                         </tr>
                         {% endfor %}
@@ -59,4 +108,5 @@
     </div>
 
 </body>
+
 </html>

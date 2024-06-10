@@ -40,6 +40,8 @@ def registro ():
 
 @app.route('/adicionar_produto', methods=['POST'])
 def adicionar_produto():
+    if 'User_Only' not in session or session['User_Only'] == None:
+        return redirect('login') 
     rastreio = request.form['txtRastreio']
     tipo = request.form['txtTipo']
     data = request.form['txtData']
@@ -63,6 +65,8 @@ def edit():
     
 @app.route('/editar_produto/<int:produto_id>', methods=['GET'])
 def editar_produto(produto_id):
+    if 'User_Only' not in session or session['User_Only'] == None:
+        return redirect('login') 
     # Buscar o produto pelo ID
     produto = Produtos.query.get(produto_id)
     if produto:
@@ -93,7 +97,23 @@ def salvar_edicao(produto_id):
 
     return redirect('/')
 
+@app.route('/pesquisar_rastreio', methods=['POST'])
+def pesquisar_rastreio():
+    # Verifica se foi enviado um parâmetro de busca
+    rastreio = request.form['rastreio']
 
+    if rastreio:
+        # Realiza a busca no banco de dados pelo número de rastreamento
+        produto = Produtos.query.filter(Produtos.rastreio_pedido.ilike(f'%{rastreio}%')).first()
+        if produto:
+            # Se o produto for encontrado, redireciona para a página de edição
+            return redirect(url_for('editar_produto', produto_id=produto.id_produto))
+        else:
+            flash('Produto não encontrado com o número de rastreamento informado.')
+            return redirect(url_for('paginaInicial'))
+    else:
+        flash('Informe o número de rastreamento para realizar a pesquisa.')
+        return redirect(url_for('paginaInicial'))
 
 @app.route('/apagar_produto/<int:produto_id>', methods=['GET'])
 def apagar_produto(produto_id):
@@ -105,6 +125,13 @@ def apagar_produto(produto_id):
     else:
         flash("Produto não encontrado.")
     return redirect('/')
+
+@app.route('/logout', methods=['POST'])
+def logout():
+    # Remova o usuário da sessão
+    session.pop('User_Only', None)
+    # Redirecione para a página de login
+    return redirect(url_for('login'))
 
 app.run(debug=True)
 

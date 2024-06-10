@@ -5,9 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../static/css/bootstrap.css">
     <link rel="stylesheet" href="../static/css/Style.css">
+    <title>Editar Produto</title>
 </head>
 <body>
-    <h1>Editar Produto</h1>
+    <div class="d-flex">
+        <div class="bg-orange sidebar">
+            <div class="sidebar-sticky">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="{{ url_for('paginaInicial') }}">Página Inicial</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="{{ url_for('cadastrar_produto') }}">Cadastrar Produto</a>
+                    </li>
+                </ul>
+                <!-- Botão de logout no rodapé da sidebar -->
+                <div class="logout-botao">
+                    <form action="/logout" method="post">
+                        <button type="submit" class="btn btn-danger">Logout</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+ 
+
     <div class="modificar-tabela">
         <form action="/salvar_edicao/{{ produto.id_produto }}" method="POST">
             <h1 class="titulo-tabela">Editar Produto</h1>
@@ -16,10 +38,10 @@
             <label for="tipo">Tipo:</label><br>
             <input type="text" id="tipo" name="txtTipo" value="{{ produto.tipo_prod }}"><br>
             <label for="data">Data:</label><br>
-            <input type="text" id="data" name="txtData" value="{{ produto.datareceb_prod }}"><br>
+            <input type="date" id="data" name="txtData" value="{{ produto.datareceb_prod }}"><br>
             <label for="descricao">Descrição:</label><br>
             <input type="text" id="descricao" name="txtDescricao" value="{{ produto.desc_prod }}"><br><br>
-            <input type="submit" value="Salvar Edição">
+            <button type="submit">Salvar edição</button>
         </form>
     </div>
 </body>
