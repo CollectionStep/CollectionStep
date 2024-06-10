@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/bootstrap.css">
+    <link rel="stylesheet" href="../static/css/Style.css">
+</head>
+<body>
+    <h1>Editar Produto</h1>
+    <div class="modificar-tabela">
+        <form action="/salvar_edicao/{{ produto.id_produto }}" method="POST">
+            <h1 class="titulo-tabela">Editar Produto</h1>
+            <label for="rastreio">Código de Rastreamento:</label><br>
+            <input type="text" id="rastreio" name="txtRastreio" value="{{ produto.rastreio_pedido }}"><br>
+            <label for="tipo">Tipo:</label><br>
+            <input type="text" id="tipo" name="txtTipo" value="{{ produto.tipo_prod }}"><br>
+            <label for="data">Data:</label><br>
+            <input type="text" id="data" name="txtData" value="{{ produto.datareceb_prod }}"><br>
+            <label for="descricao">Descrição:</label><br>
+            <input type="text" id="descricao" name="txtDescricao" value="{{ produto.desc_prod }}"><br><br>
+            <input type="submit" value="Salvar Edição">
+        </form>
+    </div>
+</body>
+</html>

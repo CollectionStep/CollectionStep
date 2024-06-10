@@ -179,6 +179,150 @@ body {
     /* Aumenta a escala no hover */
 }
 
+.modificar-tabela {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    padding: 2rem;
+    max-width: 500px; /* Ajuste conforme necessário */
+    width: 100%;
+    margin: auto; /* Centraliza a tabela horizontalmente */
+    backdrop-filter: blur(5px); /* Efeito de desfoque */
+    transition: background-color 1s; /* Transição de cor de 1 segundo */
+    text-align: center; /* Alinha o texto ao centro */
+}
+
+.modificar-tabela h1 {
+    margin-bottom: 1rem; /* Espaçamento inferior */
+}
+
+.modificar-tabela input[type="text"] {
+    width: 100%;
+    padding: 0.5rem 0; /* Ajusta o preenchimento (padding) vertical */
+    margin-bottom: 1rem; /* Espaçamento inferior */
+    border: none; /* Remove a borda */
+    border-bottom: 1px solid transparent; /* Adiciona apenas a linha de baixo */
+    background: none; /* Remove o fundo */
+    color: #fff; /* Cor do texto */
+    text-align: left; /* Alinha o texto à esquerda */
+    border-radius: 5px; /* Bordas arredondadas */
+    transition: border-color 1s; /* Transição de cor da borda de 1 segundo */
+}
+
+.modificar-tabela input[type="text"]:hover {
+    border-color: #fff; /* Cor do contorno branco ao passar o mouse */
+}
+
+.modificar-tabela label {
+    display: block; /* Mostra as labels como blocos */
+    margin-bottom: 0.5rem; /* Espaçamento inferior */
+    font-weight: bold; /* Deixa o texto em negrito */
+}
+
+.modificar-tabela button[type="submit"] {
+    width: 100%; /* Ocupa toda a largura disponível */
+    padding: 1rem; /* Aumenta o preenchimento do botão */
+    background-color: #ff5722; /* Cor de fundo */
+    border: none; /* Remove a borda */
+    border-radius: 10px; /* Bordas arredondadas */
+    font-size: 1.2rem; /* Tamanho da fonte */
+    color: #fff; /* Cor do texto */
+    cursor: pointer; /* Cursor de ponteiro ao passar por cima */
+    transition: background-color 1s, transform 0.3s; /* Transições de cor e escala */
+}
+
+.modificar-tabela button[type="submit"]:hover {
+    background-color: #e64a19; /* Cor de fundo no hover */
+    transform: scale(1.05); /* Aumenta a escala no hover */
+}
+
+/* Hover para alterar a cor para laranja */
+.modificar-cadastro:hover {
+    background-color: #ff7322;
+}
+
+/* Estilo para as caixas de texto na tabela de cadastrar produtos */
+.modificar-cadastro input[type="text"],
+.modificar-cadastro input[type="date"] {
+    width: 100%;
+    padding: 0.5rem 0;
+    /* Ajusta o preenchimento (padding) vertical */
+    margin-bottom: 1rem;
+    /* Espaçamento inferior */
+    border: none;
+    /* Remove a borda */
+    border-bottom: 1px solid transparent;
+    /* Adiciona apenas a linha de baixo */
+    background: none;
+    /* Remove o fundo */
+    color: #fff;
+    /* Cor do texto */
+    text-align: left;
+    /* Alinha o texto à esquerda */
+    border-radius: 5px;
+    /* Bordas arredondadas */
+    transition: border-color 1s;
+    /* Transição de cor da borda de 1 segundo */
+}
+
+/* Cor do contorno branco para caixas de texto quando o cursor estiver sobre a tabela */
+.modificar-cadastro:hover input[type="text"],
+.modificar-cadastro:hover input[type="date"] {
+    border-color: #fff;
+}
+
+/* Justifica o texto dentro das caixas de texto */
+.modificar-cadastro input[type="text"],
+.modificar-cadastro input[type="date"],
+.modificar-cadastro label {
+    text-align: justify;
+}
+
+/* Centraliza o conteúdo dentro da tabela de cadastrar produtos */
+.modificar-cadastro fieldset {
+    text-align: center;
+}
+
+/* Alinha a label na frente da caixa de texto */
+.modificar-cadastro label {
+    display: block;
+    /* Mostra as labels como blocos */
+    margin-bottom: 0.5rem;
+    /* Espaçamento inferior */
+    font-weight: bold;
+    /* Deixa o texto em negrito */
+}
+
+/* Estilo para o botão de cadastrar produtos */
+.modificar-cadastro button[type="submit"] {
+    width: 100%;
+    /* Ocupa toda a largura disponível */
+    padding: 1rem;
+    /* Aumenta o preenchimento do botão */
+    background-color: #ff5722;
+    /* Cor de fundo */
+    border: none;
+    /* Remove a borda */
+    border-radius: 10px;
+    /* Bordas arredondadas */
+    font-size: 1.2rem;
+    /* Tamanho da fonte */
+    color: #fff;
+    /* Cor do texto */
+    cursor: pointer;
+    /* Cursor de ponteiro ao passar por cima */
+    transition: background-color 1s, transform 0.3s;
+    /* Transições de cor e escala */
+}
+
+/* Hover para ajustar a cor e a escala do botão */
+.modificar-cadastro button[type="submit"]:hover {
+    background-color: #e64a19;
+    /* Cor de fundo no hover */
+    transform: scale(1.05);
+    /* Aumenta a escala no hover */
+}
+
 table {
     border-collapse: collapse;
     width: 100%;

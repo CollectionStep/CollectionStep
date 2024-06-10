@@ -1,5 +1,5 @@
 from flask import render_template, redirect, request, session, flash, url_for
-from models import Produtos, Usuarios
+from models import *
 from main import db, app
 
 # Rotas 
@@ -56,6 +56,45 @@ def adicionar_produto():
     db.session.commit()
 
     return redirect('/')
+@app.route('/editar')
+def edit():
+    return render_template('edit.html')
+
+    
+@app.route('/editar_produto/<int:produto_id>', methods=['GET'])
+def editar_produto(produto_id):
+    # Buscar o produto pelo ID
+    produto = Produtos.query.get(produto_id)
+    if produto:
+        # Renderizar o template de edição com os detalhes do produto
+        return render_template('edit.html', produto=produto)
+    else:
+        flash("Produto não encontrado.")
+        return redirect('/')
+
+@app.route('/salvar_edicao/<int:produto_id>', methods=['POST'])
+def salvar_edicao(produto_id):
+    # Buscar o produto pelo ID
+    produto = Produtos.query.get(produto_id)
+
+    if produto:
+        # Atualizar os atributos do produto com base nos dados do formulário
+        produto.rastreio_pedido = request.form['txtRastreio']
+        produto.tipo_prod = request.form['txtTipo']
+        produto.datareceb_prod = request.form['txtData']
+        produto.desc_prod = request.form['txtDescricao']
+
+        # Commit para salvar as mudanças no banco de dados
+        db.session.commit()
+
+        flash("Produto editado com sucesso.")
+    else:
+        flash("Produto não encontrado.")
+
+    return redirect('/')
+
+
+
 @app.route('/apagar_produto/<int:produto_id>', methods=['GET'])
 def apagar_produto(produto_id):
     produto = Produtos.query.get(produto_id)
@@ -66,4 +105,7 @@ def apagar_produto(produto_id):
     else:
         flash("Produto não encontrado.")
     return redirect('/')
+
 app.run(debug=True)
+
+
