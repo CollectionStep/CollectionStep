@@ -15,7 +15,9 @@ CREATE TABLE produtos (
     id_produto int PRIMARY KEY auto_increment not null,
     datareceb_prod varchar(20),
     tipo_prod varchar(50),
-    desc_prod varchar(255)
+    desc_prod varchar(255),
+    tamanho_prod boolean,
+    status_prod boolean
 );
 
 INSERT INTO usuarios (name_user, mail, passW) VALUES
