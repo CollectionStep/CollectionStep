@@ -37,6 +37,26 @@ def logar():
 def registro ():
     return render_template('reg.html')
 
+@app.route('/registrar_usuario', methods=['POST'])
+def registrar_usuario():
+    nome = request.form['nome']
+    telefone = request.form['telefone']
+    email = request.form['email']
+    senha = request.form['senha']
+
+    novo_usuario = Usuarios(
+        name_user=nome,
+        mail=email,
+        passW=senha
+    )
+
+    db.session.add(novo_usuario)
+    db.session.commit()
+
+    flash("Usuário registrado com sucesso. Faça login.")
+    return redirect(url_for('login'))
+
+
 
 @app.route('/adicionar_produto', methods=['POST'])
 def adicionar_produto():

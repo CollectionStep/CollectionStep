@@ -184,10 +184,11 @@ input:focus {
 .divBusca {
     display: flex;
     align-items: center;
-    border: solid 2px rgba(255, 255, 255, 0.8);
+    border: solid 0px rgba(255, 255, 255, 0.8);
     border-radius: 10px;
+    margin-left: 4px; /* Ajustado para 2px para mover 1px para a direita */
     height: 37px;
-    width: 250px;
+    width: 100%; /* Ajusta a largura para ocupar todo o espaço disponível */
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(5px);
     transition: background-color 1s, border-color 1s;
@@ -208,7 +209,7 @@ input:focus {
     font-size: 18px;
     border: none;
     height: 32px;
-    width: 206px;
+    width: 100%;
     color: white;
     backdrop-filter: blur(5px);
     transition: border-color 1s;
@@ -339,7 +340,6 @@ input:focus {
     left: 50%;
     transform: translateX(-50%);
 }
-
 
 a {
     text-decoration: none;
